@@ -1,0 +1,157 @@
+\documentclass{article}
+\author{Sam Nolan}
+\title{Explain it like I'm 2: Using complements for subtracting numbers}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\begin{document}
+  \maketitle
+
+  As we have seen, there are quite easy to understand processes for adding 2 binary numbers.
+
+  Now comes the challenge of doing the exact opposite, subtracting binary numbers.
+
+  Lets look at how you would intuitively look at this problem.
+
+  Consider the example below:
+  \begin{align}
+   &1110001 \nonumber \\
+ - &0110110 \nonumber
+  \end{align}
+
+  Lets work this out like a normal decimal problem
+  \begin{align}
+     1110001& \nonumber \\
+    -0110110& \nonumber \\
+        1& \nonumber
+  \end{align}
+  
+  So far so good
+  \begin{align}
+     111& \nonumber \\
+    110\text{\sout{000}}&1 \nonumber \\ 
+    - 11011&0 \nonumber \\
+       1&1 \nonumber 
+  \end{align}
+
+  Ooh, not pretty this might make sense to us humans, but this type of carry over means that it's difficult
+  for different bits to be subtracted separately within a logic circuit. If you can find a way
+  to represent this type of carry, awesome! But your logic circuit is going to be quite complicated. 
+  Subtraction seems to be a bit more difficult than addition.
+
+  \section{Using the complement for subtraction}
+
+  Using complements for subtraction is a really cool technique. I believe the best way to explain
+  it is to forget about binary and see it in action within base 10.
+
+  A complement in math is another number that adds to the original to make a number of interesting
+  value. For instance, if 2 angles are complementary, they add up to 90 degrees.
+
+  In this case, what I'll call the "10s complement" (Don't use this terminology, I invented it) of a number
+  is simply another number that when added to the original, gets to a power of 10.
+
+  For example, 27's "10's complement" is 73, as $27 + 73 = 100$.
+
+  What power of 10 you choose here doesn't matter, as long as it adds to a number that is a power of 10
+  that is larger than the two numbers that you are subtracting from each other.
+
+  For instance, it is equally valid to say that the "10's complement" of a 27 is 973, as 27 + 973 = 1000.
+
+  An easy way to get the "10's complement" of any number is for every digit, choose a corresponding digit
+  that adds up to 9, and then add 1. For instance:
+
+  \begin{align}
+    \text{original number: } &1234567890 \nonumber \\
+    \text{10's complement: } &8765432109 + 1 = 8765432110 \nonumber \\
+    \text{sum: }             &9999999999 + 1 = 10000000000 \nonumber
+  \end{align}
+
+  Splitting the $+1$ is just so that you can see why it always works.
+
+  Now, what's interesting about the complement is that it is that it is the original number \textit{away}
+  from the power of 10. For instance, 27's "10's complement" is 73, and 73 is 27 below 100. The 10s complement
+  is defined like this:
+
+  \[ x + 10comp(x) = \text{power of 10} \]
+  \[ x = \text{power of 10} - 10comp(x) \]
+  
+  Imagine a block of clay that has a height of 100cm in comparison to the ground. If there is a hole that's bottom
+  is 73cm from the ground, then the hole has to be 27cm deep.
+
+  Say we now have a block that is 50cm tall, and we put it in this hole. In comparison to the nearby ground, it is
+  $50cm + 73cm = 123cm$ tall. and as the hole is 27cm deep, it must be $50cm - 27cm = 23cm$ above the block!
+
+  So now we have represented the subtraction using addition! All we need to do is remove the additional power of 10 and we
+  have the answer of 52 - 73, 23!
+
+  \section{Moving our knowledge to binary}
+
+  This same concept can be translated over to binary. Let's do it again:
+
+  We will do $ 52_{10} - 27_{10} = 110100_{2} - 011011_{2}$
+
+  Notice the trailing 0 to represent 27. Representing both numbers with the same amount of digits means that the
+  power of 2 we will be using for the two's complement is larger than both numbers.
+
+  \begin{align*}
+    \text{Original number: } &011011_{2} (27_{10}) \\
+    \text{2's complement: } &100100 + 1 = 100101_{2} (37_{10})
+  \end{align*}
+  Notice how 37 and 27 both add up to $64 (1000000_{2})$
+
+  So we now have a block of clay that is 64cm tall, with a hole that's bottom is 37cm from the ground. Now all
+  we need to do is add the block that is 52cm tall to the height of the hole and it should be 52-27 above the clay block.
+  \begin{align*}
+    110100& \\
+ +  100101& \\
+    1011001&
+  \end{align*}
+  
+  This is the same as
+  
+  \begin{align*}
+    52& \\
+  + 37& \\
+    89&
+  \end{align*}
+
+  which is 25cm above the clay block! To remove the 64cm all we need to do is remove the trailing 1 from the binary.
+
+  011001
+
+  And we have the answer! 25cm!
+
+  \section{Negative answers}
+
+  There is one last thing we need to keep in mind when doing subtraction. It's possible that we will get a negative answer.
+
+  How do we know this? We can try it out with our "10's complement". We'll try $27 - 52$, the complement of 52 is 48.
+
+  Now imagine a clay block that is 100cm tall, and a hole that is 52cm deep cut into the hole. The bottom of the hole is therefore 48cm
+  above the ground.
+
+  If we find the height of a 27cm block in the hole from the ground it will be $27 + 48 = 75$. The block is not above the clay block!
+  It's fully inside the hole.
+
+  You can tell it's negative because the sum is smaller than the power of 10. That is, $75 < 100$. This as starkly obvious because we
+  are missing the telltale 1 in the 100's column. And this telltale sign is exactly the same in binary.
+
+  How do we recover the answer then? Well, the answer should be the difference from the power of 10 to the answer that we got.
+
+  Sound familiar?
+
+  All we need to do is to find the 10's complement of 75 (25) and label it as someway "negative". The exact same logic can be applied in binary.
+  
+  In actual computer systems, the first bit of a byte is 1 if the number is negative and 0 if the number is positive. If the rest of the number
+  is negative, it is stored as the 2's complement because adding the negative number to any other number is convenient that way for computers.
+  However, reading the value of the 2's complement is difficult for humans so that's why we convert it back (by reapplying 2's complement)
+
+  An interesting repercussion of this representation is that if a number is stored with only 8 bits, 128 + 1 becomes -127. If you
+  want to see a real world problem caused by this, check out the Year 2038 problem.
+
+  Hope that made sense! If it didn't, I would love some feedback. My email is s3723315@student.rmit.edu.au.
+  
+  If there is anything in this course of other courses in computer science that need a decent explanation, just ask! Writing these
+  helps give me a good understanding of the course material.
+
+
+\end{document}
