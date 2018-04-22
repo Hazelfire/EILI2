@@ -108,7 +108,7 @@
 
   11010111 10000101 11100100  10110001
 
-  Got it? It's the second one, it has 3 bits, there must have been some error in transmission for that particular byte.
+  Got it? It's the second one, it has 3 1 bits, there must have been some error in transmission for that particular byte.
 
   As you can see, by using more parity bits, we can narrow where in the message an error was found. But we can do better than that, we can use this concept and be able to identify which individual bit is in error using the Hamming code.
 
@@ -128,7 +128,7 @@
   \subsubsection*{So how many bits do we need anyway?}
   How many parity bits do we need to specify a position in a bit string?
 
-  Well, if we have 3 bits, there are 8 ($2^3$) possible states that they can be in. This means that 3 bits could specify 8 different locations in a bit string. Say for instance, 001 could mean be the the bit at index 1 and 002 could be the bit at index 2, etc. We'll reserve 000 for later.
+  Well, if we have 3 bits, there are 8 ($2^3$) possible states that they can be in. This means that 3 bits could specify 8 different locations in a bit string. Say for instance, 001 could mean be the the bit at index 1 and 010 could be the bit at index 2, etc. We'll reserve 000 for later.
 
   This means that given $p$ bits, you can specify $2^p$ positions in a bit string. Meaning to be able to express all possible positions in a message of size $m$:
 

@@ -8,7 +8,7 @@
 \begin{document}
   \maketitle
 
-  The encryption of information is a difficult task. You have to transform data in such a way that it cannot be transformed back without a key, and also does not give away any information about the message.
+  Coming up with your own encryption scheme is a difficult task. You have to transform data in such a way that it cannot be transformed back without a key, and also does not give away any information about the message.
 
   RSA is one such algorithm. It's special because it is an asymmetric cryptosystem. Meaning that there is one key that encrypts the information, and the other key decrypt it.
   
@@ -33,24 +33,20 @@
   This is expressed as the following:
   \[ (11 + 2) \inmod 12 = 1 \]
 
-  This $\inmod$ is an operation in the same way that addition and multiplication is. $\mod 12$ gets rid of any spare 12's in the 13. An easy way to get rid of these spare 12s is to divide the number by 12 and find the remainder. This operation is represented by a \% in Java.
+  This $\inmod$ is an operation in the same way that addition and multiplication is. $\inmod 12$ gets rid of any spare 12's in the 13. An easy way to get rid of these spare 12s is to divide the number by 12 and find the remainder. This operation is represented by a \% in Java.
 
   There is another notation that this can be expressed as.
   \[ 11 + 2 \equiv 1 \mod 12 \]
 
-  The $\equiv$ sign is a telltale sign that something is different. The $\equiv$ sign is read as "is equivalent to", and the entire expression reads as "11 + 2 is equivalent to 1 under mod 12". This is saying that if we are using modular arithmetic with base 12, then $11 + 2$ and $1$ are equivalent.
+  The $\equiv$ sign is a telltale sign that something is different. The $\equiv$ sign is read as "is congruent to", and the entire expression reads as "11 + 2 is congruent to 1 under mod 12". This is saying that if we are using modulo 12, then $11 + 2$ and $1$ are equivalent.
 
-  The \mod 12 is in a sense a marker telling you to treat the following
+  The $\inmod 12$ is in a sense a marker telling you to treat the following
   relationship as modular. It's like saying, "If we are talking about clocks, 
   then 11 + 2 is equivalent to 1" The $\inmod 12$ part of this equation is 
   stating something about the entire equation, and not just the 1.
 
   If you don't like thinking about different systems, the statement is basically saying:
   \[ 11 + 2 \inmod 12 = 1 \inmod 12 \]
-
-  The only difference between clocks and modular arithmetic is that modular arithmetic starts at 0, for instance.
-
-  \[ 12 \inmod 2 = 0 \]
 
   I like modular arithmetic! Imagine if there was only 12 numbers in existence and they just kept looping around! No more massive sums!
 
@@ -78,7 +74,7 @@
 
   There are some times tables that have patterns with the last digit. For instance, our beloved 5 times tables, which can only end in 0 or 5 and makes our life much easier.
 
-  Let's look at our 7 times tables last digits, but with a new perspective. To use modular arithmetic, $\inmod 10$ will just get the last digit of our number. This is because $\mod 10$ gets rid of any excess 10s, which also includes any 100s (because 100s are made of 10s)
+  Let's look at our 7 times tables last digits, but with a new perspective. To use modular arithmetic, $\inmod 10$ will just get the last digit of our number. This is because $\inmod 10$ gets rid of any excess 10s, which also includes any 100s (because 100s are made of 10s)
 
   So, we have the following:
   \begin{align}
@@ -95,11 +91,15 @@
   \end{align}
   Yuck. But there's something cool about this, if you multiply 7 by a number under mod 10, \textbf{any} number as a last digit is possible. Count them above!
 
+  This feature is often used to shuffle lists, if we have a list of 10 elements,
+  as element 1 can be put in place 7, 2 in 4 and so on. As a bit of a side note
+  this technique is used by the online library of babel to shuffle their library.
+
   This occurs when the mod we are using is \textbf{coprime} to the number we are multiplying. A number is coprime when there is no common factors between the numbers other than 1. Try it out! The numbers that are coprime to 10 are 1, 3, 7 and 9, all of which can have any digit as a last one.
   
   This property comes in useful for our next part.
 
-  \subsection*{Multiplicative Modular Inverses}
+  \subsection*{Modular Multiplicative Inverses}
   My god that sound scary. It's not really, it's similar to all the other inverses
   we have learnt in primary school.
 
@@ -140,25 +140,29 @@
   notation, meaning that what is stated is not formally correct and can be
   misleading, but is a very common form of notation and is generally accepted.
 
+  Another thing to take into account is that $7^{-1}$ is dependent on mod 10.
+  When using your online calculator and need to input the mod
+  value, always choose the modulo value that appears in the same equation.
+
   What's special about multiplicative inverses in real numbers is that if I multiply
-  a number $x$ by it's multiplicative inverse I'll call $x^{-1}$. Then $x \times x^{-1} = 1$.
+  a number $x$ by it's multiplicative inverse $x^{-1}$. Then $x \times x^{-1} = 1$.
 
-  In this case you can see that $7 \times 7^{-1} \equiv 1 \mod 10$. As
-  Any number $x$ times 1 is equal to $x$. So all we need to find the number that
-  multiplied by 7 gives 1 under mod 10. This number happens to be 3. So we
-  therefore say that 3 is the multiplicative inverse of 7, or with maths:
+  This is also true in modular arithmetic, so $7 \times 7^{-1} \equiv 1 \mod 10$.
+  So all we need to find the number that multiplied by 7 gives 1 under mod 10.
+  This number happens to be 3. So we therefore say that 3 is the multiplicative
+  inverse of 7, or with maths:
 
-  \[ 7^{-1} \inmod 10 = 3 \]
+  \[ 7^{-1} \equiv 3 \mod 10 \]
 
   This means that under mod 10, if we are to multiply a number by 7, and then by
   3, we'll get the same number again. Try it out!
 
   One interesting thing to note is that the inverse of 7 mod 10 is 3, and also
-  the opposite is true, that is, the inverse of 3 mod 10 is 7. This is true
-  because it doesn't matter what order you multiply the numbers.
+  the opposite is true, that is, the inverse of 3 mod 10 is 7. It is the same
+  as with real numbers.
 
-  \[ 3^{-1} \inmod 10 = 7 \]
-  \[ 7^{-1} \inmod 10 = 3 \]
+  \[ 3^{-1} = 7 \mod 10 \]
+  \[ 7^{-1} = 3 \mod 10\]
 
   Finally, it is only possible to have a modular multiplicative inverse if the
   number that you are multiplying by is coprime to the modular. As we saw before,
@@ -199,12 +203,17 @@
   ever happen. As raising the message to the power of 1 will do nothing to it.
   The encryption and decryption steps will work, but it will not be secure.
 
-  Take note that we can generate these the other way around. Find a number $d$
+  Because all we care about is that $d$ and $e$ are coprime, and $d$ ande $e$ are
+  of equal status, we can generate these the other way around. Find a number $d$
   that is comprime to $\phi(n)$ and then find $e$. $d$ and $e$ are in a sense
   equivalent, of equal status. Why $e$ is usually chosen before $d$ in practice
   is outlined later, but in theory, they are interchangeable.
 
+
   $d$ is the modular multiplicative inverse of $e$ and vice versa.
+
+  \[ d^{-1} \equiv e \mod \phi(n) \]
+  \[ e^{-1} \equiv d \mod \phi(n) \]
 
   \subsection*{The Encryption and Decryption}
 
@@ -236,10 +245,13 @@
   And there we have it! Taking a message to the power of $e$ encrypts the message,
   and $d$ simply cancels out $e$ because it's the multiplicative inverse!
 
-  Something to take away from this is that because $e$ and $d$ are generated 
-  the same way, and are inverses of each other, you can change this around and
-  have the server encrypt a message with $d$ and let anyone decrypt it with $e$.
-  This is called digital signing and is simply the reverse of encryption, we'll
+  One way to compare $d$ and $e$ is to think of our ceaser shift. $d$ is like
+  adding 3 to the letter and $e$ is subtracting 3. The metaphor is useful because
+  it shows that it can also be done the other way and work. i.e. subtracting 3
+  to encrypt and then adding 3 do encrypt. As $d$ and $e$ are simply inverses
+  of each other.
+
+  This is useful in digital signing and is simply the reverse of encryption, we'll
   cover it later.
 
   \subsection*{$\phi(n)$ and the real story}
@@ -258,7 +270,7 @@
   \[ d \times e \equiv 1 \mod \phi(n) \]
 
   And we are not doing a mod under $\phi(n)$, saying that $d \times e = 1$ is
-  not true. The whole starts here:
+  not true. So we come back here:
 
   \[ M^{ed} \equiv M \mod n \]
 
@@ -278,7 +290,7 @@
 
   Now I can get rid of the M on either side and we get:
 
-  \[ M^{n\phi(n)} \equiv 1 \mod n \]
+  \[ M^{a\phi(n)} \equiv 1 \mod n \]
 
   Now, If $M^{\phi(n)}$ is $1$ under $\inmod n$ then that would mean that any 
   power of it would also be one. So if the following is true, the above is true
@@ -286,8 +298,12 @@
   \[ M^{\phi(n)} \equiv 1 \mod n \]
 
   I'm going to stop here, as the above is a theorem by the name of 
-  \textit{Euler's Theorem}, which is a bit more complicated. But because this
-  is true, the above is all true, and RSA works.
+  \textit{Euler's Theorem}, which is a bit more complicated. If you really want
+  to, you can look at proofs for this on the internet. This is however true.
+
+  If you did make it all the way down here, we can say the the extra $a\phi(n)$
+  get cancelled out because of Euler's Theorem. That way we can still view
+  it in the cancelling out manner as I outlined above.
 
   \subsection*{Digital Signing}
   You can imagine that taking a number to the power of $e$ times the exponent by
@@ -298,12 +314,22 @@
   can reverse it by multiplying by $\frac{1}{2}$. But the reverse is also true,
   if you multiply by $\frac{1}{2}$, it can be reversed by multiplying by $2$.
 
-  In a real life situation, that means that data can be "Encrypted" in a way that
-  every can unlock with the public key. What's the point of that?
+  Encryption normally uses $e$ to make a transformation that $d$ undoes.
+  However, the reverse is true, you can use $d$ to change the information that $e$ can undo.
+
+  This means that you can in a sense "decrypt" plaintext using the private key
+  into the cipher text and then "encrypt" it back into the plaintext using the
+  public key. 
+
+  For this section I'll use the word encrypt to mean encrypt with private key and 
+  decrypt to mean decrypt with public key.
+
+  This means that data can be transformed in a way that
+  everyone can unlock with the public key. What's the point of that?
 
   It actually comes in very useful when we are signing documents. By being able
-  to encrypt a small document (such as a hash) that is decryptable by everyone,
-  you are able to prove your identity.
+  to encrypt a small document (such as a hash) that is decryptable by everyone, 
+  you are able to prove that you were the one that encrypted the hash.
 
   How this works is that you hash the document you are sending, encrypt the hash
   with your private key, and then others can read the decrypt the hash and 
@@ -326,10 +352,10 @@
   every key.
   
   What's also cool about $2^{16} + 1$ is that it's got a lot of binary $0$s in it
-  ($10000000000000001_2$), which actually makes exponentiation easier in practice.
+  ($10000000000000001_2$), which actually makes exponentiation faster in practice.
 
-  We then derive $d$ from $e$ and $\phi(n)$. That's the only reason why we generate
-  $e$ before $d$.
+  That's the only reason why we generate $e$ before $d$. Because we don't even
+  really "generate" it, we just keep it constant.
 
   I hope that made sense. If you have any feedback, or found any errors, these
   papers are now on Github! at \texttt{github.com/Hazelfire/EILI2}. You can
