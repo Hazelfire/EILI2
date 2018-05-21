@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{n}{Dog} \PYG{n}{dog} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Dog}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}Bojo\PYGZdq{}}\PYG{o}{);}
+\end{Verbatim}

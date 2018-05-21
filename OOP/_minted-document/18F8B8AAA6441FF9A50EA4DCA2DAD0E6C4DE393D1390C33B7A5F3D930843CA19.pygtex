@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k+kd}{public} \PYG{n}{String} \PYG{n+nf}{getDetails}\PYG{o}{()\PYGZob{}}
+    \PYG{k}{return} \PYG{l+s}{\PYGZdq{}Area: \PYGZdq{}} \PYG{o}{+} \PYG{n}{String}\PYG{o}{.}\PYG{n+na}{valueOf}\PYG{o}{(}\PYG{n}{getArea}\PYG{o}{());}
+  \PYG{o}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{interface} \PYG{n+nc}{Vector}\PYG{o}{\PYGZob{}}
+  \PYG{k+kd}{public} \PYG{k+kt}{double} \PYG{n+nf}{distance}\PYG{o}{();}
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

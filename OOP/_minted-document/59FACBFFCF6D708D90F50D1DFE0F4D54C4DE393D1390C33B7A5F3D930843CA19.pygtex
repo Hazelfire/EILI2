@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{PolarVector} \PYG{k+kd}{implements} \PYG{n}{Vector} \PYG{o}{\PYGZob{}}
+    \PYG{o}{...}
+\PYG{o}{\PYGZcb{}}
+
+\PYG{k+kd}{class} \PYG{n+nc}{CartesianVector} \PYG{k+kd}{implements} \PYG{n}{Vector} \PYG{o}{\PYGZob{}}
+    \PYG{o}{...}
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

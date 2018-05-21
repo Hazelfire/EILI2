@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k+kd}{class} \PYG{n+nc}{AccountList}\PYG{o}{\PYGZob{}}
+    \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n+nf}{addAccount}\PYG{o}{(}\PYG{n}{Account} \PYG{n}{account}\PYG{o}{);}
+    \PYG{k+kd}{public} \PYG{n}{Account} \PYG{n+nf}{getAccountById}\PYG{o}{(}\PYG{n}{String} \PYG{n}{id}\PYG{o}{);}
+    \PYG{o}{...}
+    \PYG{c+c1}{// More account related features}
+    \PYG{o}{...}
+    \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n+nf}{writeToFile}\PYG{o}{(}\PYG{n}{String} \PYG{n}{filename}\PYG{o}{,} \PYG{k+kt}{byte}\PYG{o}{[]} \PYG{n}{contents}\PYG{o}{);}
+  \PYG{o}{\PYGZcb{}}
+\end{Verbatim}

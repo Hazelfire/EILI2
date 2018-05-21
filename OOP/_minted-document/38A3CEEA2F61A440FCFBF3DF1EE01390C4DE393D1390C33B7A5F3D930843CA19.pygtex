@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{Vector}\PYG{o}{\PYGZob{}}
+  \PYG{k+kd}{public} \PYG{k+kt}{double} \PYG{n}{x}\PYG{o}{;}
+  \PYG{k+kd}{public} \PYG{k+kt}{double} \PYG{n}{y}\PYG{o}{;}
+\PYG{o}{\PYGZcb{}}
+
+\PYG{k+kd}{class} \PYG{n+nc}{VectorCalculator}\PYG{o}{\PYGZob{}}
+  \PYG{k+kd}{public} \PYG{k+kt}{double} \PYG{n+nf}{distance}\PYG{o}{(}\PYG{n}{Vector} \PYG{n}{vector}\PYG{o}{)\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{Math}\PYG{o}{.}\PYG{n+na}{sqrt}\PYG{o}{(}\PYG{n}{vector}\PYG{o}{.}\PYG{n+na}{x} \PYG{o}{*} \PYG{n}{vector}\PYG{o}{.}\PYG{n+na}{x} \PYG{o}{+} \PYG{n}{vector}\PYG{o}{.}\PYG{n+na}{y} \PYG{o}{*} \PYG{n}{vector}\PYG{o}{.}\PYG{n+na}{y}\PYG{o}{);}
+  \PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

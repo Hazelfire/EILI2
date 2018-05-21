@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{n}{dog}\PYG{o}{.}\PYG{n+na}{bark}\PYG{o}{();}
+    \PYG{n}{String} \PYG{n}{name} \PYG{o}{=} \PYG{n}{dog}\PYG{o}{.}\PYG{n+na}{getName}\PYG{o}{();}
+\end{Verbatim}

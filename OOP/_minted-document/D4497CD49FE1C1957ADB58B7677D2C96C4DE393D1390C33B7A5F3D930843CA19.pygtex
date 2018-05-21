@@ -1,0 +1,40 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{abstract} \PYG{k+kd}{class} \PYG{n+nc}{Shape}\PYG{o}{\PYGZob{}}
+  \PYG{k+kd}{private} \PYG{n}{String} \PYG{n}{name}\PYG{o}{;}
+  \PYG{k+kd}{public} \PYG{n+nf}{Shape}\PYG{o}{(}\PYG{n}{String} \PYG{n}{name}\PYG{o}{)\PYGZob{}}
+    \PYG{k}{this}\PYG{o}{.}\PYG{n+na}{name} \PYG{o}{=} \PYG{n}{name}\PYG{o}{;}
+  \PYG{o}{\PYGZcb{}}
+
+  \PYG{k+kd}{public} \PYG{n}{String} \PYG{n+nf}{getName}\PYG{o}{()\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{name}\PYG{o}{;}
+  \PYG{o}{\PYGZcb{}}
+
+  \PYG{k+kd}{public} \PYG{k+kd}{abstract} \PYG{k+kt}{double} \PYG{n+nf}{getArea}\PYG{o}{();}
+\PYG{o}{\PYGZcb{}}
+
+\PYG{k+kd}{class} \PYG{n+nc}{Square} \PYG{k+kd}{extends} \PYG{n}{Shape}\PYG{o}{\PYGZob{}}
+  \PYG{k+kd}{private} \PYG{k+kt}{double} \PYG{n}{sideLength}\PYG{o}{;}
+
+  \PYG{k+kd}{public} \PYG{n+nf}{Square}\PYG{o}{(}\PYG{k+kt}{double} \PYG{n}{sideLength}\PYG{o}{)\PYGZob{}}
+    \PYG{k+kd}{super}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}Square\PYGZdq{}}\PYG{o}{);}
+    \PYG{k}{this}\PYG{o}{.}\PYG{n+na}{sideLength} \PYG{o}{=} \PYG{n}{sideLength}\PYG{o}{;}
+  \PYG{o}{\PYGZcb{}}
+
+  \PYG{k+kd}{public} \PYG{k+kt}{double} \PYG{n+nf}{getArea}\PYG{o}{()\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{sideLength} \PYG{o}{*} \PYG{n}{sideLength}
+  \PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZcb{}}
+
+\PYG{k+kd}{class} \PYG{n+nc}{Circle} \PYG{k+kd}{extends} \PYG{n}{Shape}\PYG{o}{\PYGZob{}}
+  \PYG{k+kd}{private} \PYG{k+kt}{double} \PYG{n}{radius}\PYG{o}{;}
+
+  \PYG{k+kd}{public} \PYG{n+nf}{Circle}\PYG{o}{(}\PYG{k+kt}{double} \PYG{n}{radius}\PYG{o}{)\PYGZob{}}
+    \PYG{k+kd}{super}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}Circle\PYGZdq{}}\PYG{o}{);}
+    \PYG{k}{this}\PYG{o}{.}\PYG{n+na}{radius} \PYG{o}{=} \PYG{n}{radius}\PYG{o}{;}
+  \PYG{o}{\PYGZcb{}}
+
+  \PYG{k+kd}{public} \PYG{k+kt}{double} \PYG{n+nf}{getArea}\PYG{o}{()\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{Math}\PYG{o}{.}\PYG{n+na}{pi} \PYG{o}{*} \PYG{n}{radius} \PYG{o}{*} \PYG{n}{radius}\PYG{o}{;}
+  \PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

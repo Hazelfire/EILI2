@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k+kd}{private} \PYG{n}{Person}\PYG{o}{[]} \PYG{n}{people} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Person}\PYG{o}{[}\PYG{n}{COMPANY\PYGZus{}SIZE}\PYG{o}{];}
+
+  \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n+nf}{addEmployee}\PYG{o}{(}\PYG{n}{String} \PYG{n}{name}\PYG{o}{,} \PYG{k+kt}{double} \PYG{n}{wage}\PYG{o}{)\PYGZob{}}
+    \PYG{n}{Person} \PYG{n}{employee} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Person}\PYG{o}{(}\PYG{n}{name}\PYG{o}{);}
+    \PYG{n}{employee}\PYG{o}{.}\PYG{n+na}{setWage}\PYG{o}{(}\PYG{n}{wage}\PYG{o}{);}
+
+    \PYG{k}{for}\PYG{o}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{o}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{people}\PYG{o}{.}\PYG{n+na}{length}\PYG{o}{;} \PYG{n}{i}\PYG{o}{++)\PYGZob{}}
+      \PYG{k}{if}\PYG{o}{(}\PYG{n}{people}\PYG{o}{[}\PYG{n}{i}\PYG{o}{]} \PYG{o}{==} \PYG{k+kc}{null}\PYG{o}{)\PYGZob{}}
+        \PYG{n}{people}\PYG{o}{[}\PYG{n}{i}\PYG{o}{]} \PYG{o}{=} \PYG{n}{employee}\PYG{o}{;}
+      \PYG{o}{\PYGZcb{}}
+    \PYG{o}{\PYGZcb{}}
+  \PYG{o}{\PYGZcb{}}
+
+  \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n+nf}{addContractor}\PYG{o}{(}\PYG{n}{String} \PYG{n}{name}\PYG{o}{,} \PYG{k+kt}{double} \PYG{n}{rate}\PYG{o}{,} \PYG{k+kt}{int} \PYG{n}{hoursNeeded}\PYG{o}{)\PYGZob{}}
+    \PYG{n}{Person} \PYG{n}{contractor} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Person}\PYG{o}{(}\PYG{n}{name}\PYG{o}{);}
+    \PYG{n}{contractor}\PYG{o}{.}\PYG{n+na}{setRate}\PYG{o}{(}\PYG{n}{rate}\PYG{o}{);}
+    \PYG{n}{contractor}\PYG{o}{.}\PYG{n+na}{employFor}\PYG{o}{(}\PYG{n}{hoursNeeded}\PYG{o}{);}
+
+    \PYG{k}{for}\PYG{o}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{o}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{people}\PYG{o}{.}\PYG{n+na}{length}\PYG{o}{;} \PYG{n}{i}\PYG{o}{++)\PYGZob{}}
+      \PYG{k}{if}\PYG{o}{(}\PYG{n}{people}\PYG{o}{[}\PYG{n}{i}\PYG{o}{]} \PYG{o}{==} \PYG{k+kc}{null}\PYG{o}{)\PYGZob{}}
+        \PYG{n}{people}\PYG{o}{[}\PYG{n}{i}\PYG{o}{]} \PYG{o}{=} \PYG{n}{contractor}\PYG{o}{;}
+      \PYG{o}{\PYGZcb{}}
+    \PYG{o}{\PYGZcb{}}
+  \PYG{o}{\PYGZcb{}}
+\end{Verbatim}

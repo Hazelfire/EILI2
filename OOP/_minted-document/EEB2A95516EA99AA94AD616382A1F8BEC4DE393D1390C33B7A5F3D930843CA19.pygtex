@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{class} \PYG{n+nc}{Vector}\PYG{o}{\PYGZob{}}
+  \PYG{k+kd}{private} \PYG{k+kt}{double} \PYG{n}{x}\PYG{o}{;}
+  \PYG{k+kd}{private} \PYG{k+kt}{double} \PYG{n}{y}\PYG{o}{;}
+
+  \PYG{k+kd}{public} \PYG{n+nf}{Vector}\PYG{o}{(}\PYG{k+kt}{double} \PYG{n}{x}\PYG{o}{,} \PYG{k+kt}{double} \PYG{n}{y}\PYG{o}{)\PYGZob{}}
+    \PYG{k}{this}\PYG{o}{.}\PYG{n+na}{x} \PYG{o}{=} \PYG{n}{x}\PYG{o}{;}
+    \PYG{k}{this}\PYG{o}{.}\PYG{n+na}{y} \PYG{o}{=} \PYG{n}{y}\PYG{o}{;}
+  \PYG{o}{\PYGZcb{}}
+
+  \PYG{k+kd}{public} \PYG{k+kt}{double} \PYG{n+nf}{distance}\PYG{o}{()\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{Math}\PYG{o}{.}\PYG{n+na}{sqrt}\PYG{o}{(}\PYG{k}{this}\PYG{o}{.}\PYG{n+na}{x} \PYG{o}{*} \PYG{k}{this}\PYG{o}{.}\PYG{n+na}{x} \PYG{o}{+} \PYG{k}{this}\PYG{o}{.}\PYG{n+na}{y} \PYG{o}{*} \PYG{k}{this}\PYG{o}{.}\PYG{n+na}{y}\PYG{o}{);}
+  \PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}
